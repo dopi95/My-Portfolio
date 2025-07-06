@@ -322,3 +322,284 @@ body {
     width: 100%;
   }
 }
+
+/* style about */
+.about-section {
+  padding: 60px 20px;
+  background-color: #fff;
+  color: #333;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row; /* Default: image left, text right */
+}
+
+.about-image {
+  flex: 1 1 300px;
+  min-width: 250px;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.about-content {
+  flex: 2 1 400px;
+}
+
+.about-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1e1e1e;
+}
+
+.about-content p {
+  font-size: 1rem;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.about-content strong {
+  color: #005bbb;
+}
+
+.about-content blockquote {
+  font-style: italic;
+  border-left: 4px solid #005bbb;
+  padding-left: 15px;
+  margin-top: 20px;
+  color: #444;
+}
+
+/* ✅ On mobile: show image first */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+  }
+
+  .about-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 40px 15px;
+  }
+
+  .about-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* style skills */
+.skills-section {
+  background-color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.skills-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.skill-circle {
+  width: 150px;
+  text-align: center;
+}
+
+.circular-chart {
+  max-width: 100%;
+  height: auto;
+  transform: rotate(-90deg);
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke: #007aff;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1.5s ease-out forwards;
+}
+
+.percentage {
+  fill: #333;
+  font-size: 0.5em;
+  text-anchor: middle;
+  transform: rotate(90deg);
+  transform-origin: center;
+  font-weight: bold;
+}
+
+.skill-name {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #444;
+  font-weight: 500;
+}
+
+/* Animation */
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0, 100;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skill-circle {
+    width: 120px;
+  }
+
+  .skills-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-circle {
+    width: 100px;
+  }
+
+  .skill-name {
+    font-size: 0.9rem;
+  }
+}
+
+  /* style education and certeficate */
+.education-section {
+  padding: 3rem 1rem;
+  background: #fff;
+  text-align: center;
+}
+
+.education-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid #007aff;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.education-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.education-card,
+.certificate-card {
+  background: #ffffff;
+  border: 2px solid #007aff;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.edu-year {
+  font-weight: bold;
+  color: #007aff;
+  font-size: 1.1rem;
+}
+
+.edu-degree {
+  font-size: 1.5rem;
+  color: #34495e;
+  margin: 0.5rem 0;
+}
+
+.edu-location {
+  font-size: 1rem;
+  color: #7f8c8d;
+}
+
+.certificate-title {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 0.8rem;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #007aff;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #2980b9;
+}
+
+.download-icon {
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .education-title {
+    font-size: 2rem;
+  }
+
+  .education-card,
+  .certificate-card {
+    padding: 1.2rem;
+  }
+
+  .edu-degree {
+    font-size: 1.3rem;
+  }
+}
+.section-heading {
+  background-color: #f0f4ff; /* Light blue background */
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  display: inline-block;
+  font-size: 1.75rem;
+  color: #333;
+  font-weight: 600;
+  border: 2px solid #a0c4ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
