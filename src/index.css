@@ -1,0 +1,324 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* HEADER STYLE */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: transparent; /* transparent by default */
+}
+
+.header.scrolled {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+/* Left Section: Logo */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+   background: -webkit-linear-gradient(#1e3a8a, #d1d5db);
+    background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Right Section: Toggle + Hamburger */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+/* Dark Mode Toggle Button */
+.toggle-mode {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 100px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  width: 28px;
+  height: 22px;
+  position: relative;
+  cursor: pointer;
+  display: none;
+  z-index: 1100;
+  margin-left: auto;
+  color: #007aff;
+}
+
+.hamburger span {
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: currentColor;
+  border-radius: 2px;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+.hamburger span:nth-child(2) {
+  top: 9px;
+}
+.hamburger span:nth-child(3) {
+  bottom: 0;
+}
+
+/* Animate Hamburger to X when active */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 9px;
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  bottom: 9px;
+}
+
+/* Navigation Links */
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  
+}
+
+.nav a:hover {
+  color: #007aff;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 1rem;
+  }
+
+  .hamburger {
+    display: block;
+    margin-left: auto;
+  }
+
+  .right-section {
+    margin-left: auto;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9); 
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5rem 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    gap: 2rem;
+    z-index: 1050;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1); 
+  }
+
+  .nav.open {
+    transform: translateX(0%);
+  }
+
+  .nav a {
+    font-size: 1.2rem;
+    color: #333; 
+  }
+}
+
+/* style main */
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 2rem;
+  gap: 2rem;
+  min-height: 80vh;
+  background-color: inherit; /* inherit page background */
+  color: inherit;
+  flex-wrap: nowrap;
+  margin-top: 5rem;
+}
+
+.hero-left {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: -webkit-linear-gradient(#1e3a8a, #d1d5db);
+    background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.9rem;
+  margin-bottom: 1.5rem;
+}
+.blue-txt{
+  color: #007aff;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.social-icons a {
+  color: #007aff;
+  font-size: 2rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #333;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #444;
+  padding-left: 1.8rem; /* fixed left padding to align all lines */
+  text-align: left;
+}
+
+.contact-details > div {
+  margin-left: 0; /* ensure no extra left margin */
+  text-indent: 0;
+}
+
+/* Add a fixed width for the emoji icons to avoid shift */
+.contact-details > div::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem; /* approx width of emoji + spacing */
+  margin-left: -1.8rem; /* negative margin to "pull" emoji outside padding */
+}
+
+/* or alternatively, use the emoji inline but aligned */
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #0077b5;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #005f86;
+}
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
+
+  .hero-right {
+    order: -1; /* image on top */
+    margin-bottom: 1.5rem;
+    width: 80%;
+  }
+
+  .hero-left {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .social-icons {
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Keep vertical stack but fix left alignment */
+  .contact-details {
+    padding-left: 1.8rem; /* same fixed padding */
+    text-align: left;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-details > div {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .download-btn {
+    justify-content: center;
+    width: 100%;
+  }
+}
