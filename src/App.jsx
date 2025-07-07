@@ -9,9 +9,6 @@ import Testimonals from './components/Testimonals'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
-
-
-
 function App() {
   
   return (
