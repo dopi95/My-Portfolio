@@ -7,6 +7,7 @@ const skills = [
   { name: 'PHP', level: 75 },
   { name: 'React.Js', level: 75 },
   { name: 'Node.Js', level: 70 },
+  { name: 'Express.Js', level: 70 },
   { name: 'MYSQL & MONGODB', level: 75 },
 ];
 
