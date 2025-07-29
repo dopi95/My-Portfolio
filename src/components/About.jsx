@@ -9,7 +9,7 @@ function About() {
           <img src={profileImage} alt="Elyas Yenealem" />
         </div>
         <div className="about-content">
-          <h2>About <span className="blue-txt">Me</span></h2>
+          <h2 className="ab-title">About <span className="blue-txt">Me</span></h2>
           <p>
             Hi 👋! My name is <strong>Elyas Yenealem</strong>. I'm a <strong>Full-Stack Developer</strong> based in Ethiopia, specializing in building scalable, user-friendly, and high-performance web applications.
           </p>

@@ -59,11 +59,12 @@ function Testimonials() {
         <div className="testimonial-card">
           <img src={image} alt={name} className="testimonial-img" />
 
-          <div className="testimonial-stars">
-            {Array(rating).fill().map((_, i) => (
-              <FaStar key={i} color="#FFD700" />
-            ))}
-          </div>
+          <div className="testimonial-stars flex flex-row justify-center items-center">
+  {Array(rating).fill().map((_, i) => (
+    <FaStar key={i} className="text-yellow-400" />
+  ))}
+</div>
+
 
           <p className="testimonial-text">“{text}”</p>
 

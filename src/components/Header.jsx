@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 function Header() {
+  const [theme, setTheme] = useState('light');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Handle Dark Mode
-  useEffect(() => {
-    document.body.style.backgroundColor = darkMode ? '#121212' : '#f4f4f4';
-    document.body.style.color = darkMode ? '#e0e0e0' : '#333333';
-  }, [darkMode]);
+ 
 
   // Prevent scroll when mobile menu is open
   useEffect(() => {
@@ -41,18 +37,15 @@ function Header() {
       </div>
 
       <div className="right-section">
-        {/* <button className="toggle-mode" onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? '☀️' : '🌙'}
-        </button> */}
+       
         <div
-          className={`hamburger ${isMenuOpen ? 'active' : ''}`}
-          onClick={toggleMenu}
-        >
+          className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
           <span></span>
           <span></span>
           <span></span>
         </div>
       </div>
+      
 
       <div className={`nav ${isMenuOpen ? 'open' : ''}`}>
         <a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a>

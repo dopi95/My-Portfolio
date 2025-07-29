@@ -4,7 +4,7 @@ import { FaDownload } from 'react-icons/fa';
 const Education = () => {
   return (
     <section className="education-section">
-      <h2 className="education-title">🎓 Education & Certificates</h2>
+      <h2 className="education-title">Education & Certificates</h2>
 
       <div className="education-container">
         <h3 className="section-heading">Educations</h3>
