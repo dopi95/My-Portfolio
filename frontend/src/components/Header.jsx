@@ -5,8 +5,6 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
- 
-
   // Prevent scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto';
@@ -37,15 +35,15 @@ function Header() {
       </div>
 
       <div className="right-section">
-       
         <div
-          className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
+          className={`hamburger ${isMenuOpen ? 'active' : ''}`}
+          onClick={toggleMenu}
+        >
           <span></span>
           <span></span>
           <span></span>
         </div>
       </div>
-      
 
       <div className={`nav ${isMenuOpen ? 'open' : ''}`}>
         <a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a>

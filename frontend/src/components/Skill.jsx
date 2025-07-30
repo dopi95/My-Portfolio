@@ -3,9 +3,10 @@ import React from 'react';
 const skills = [
   { name: 'HTML', level: 90 },
   { name: 'CSS', level: 80 },
-  { name: 'JavaScript', level: 70 },
-  { name: 'PHP', level: 75 },
+  { name: 'JavaScript', level: 80 },
+  { name: 'Tailwindcss', level: 75 },
   { name: 'React.Js', level: 75 },
+  { name: 'PHP', level: 75 },
   { name: 'Node.Js', level: 70 },
   { name: 'Express.Js', level: 70 },
   { name: 'MYSQL & MONGODB', level: 75 },

@@ -1,6 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaLinkedin, FaGithub, FaArrowUp, FaTelegram } from 'react-icons/fa';
-import '../footer.css';
+import { FaInstagram, FaLinkedin, FaGithub, FaArrowUp, FaTelegram } from 'react-icons/fa';
 
 const Footer = () => {
   const scrollToTop = () => {
