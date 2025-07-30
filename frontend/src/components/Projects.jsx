@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaArrowRight, FaGithub, FaTimes } from 'react-icons/fa';
-import PImage from '../assets/elyas.png'; // Replace with real images
+import PImage from '../assets/img/elyas.png'; // Replace with real images
 
 const projects = [
   {

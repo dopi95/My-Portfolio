@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaLinkedin, FaGithub, FaInstagram, FaTelegram, FaDownload} from 'react-icons/fa';
-import profileImage from '../assets/elyas.png'; 
+import profileImage from '../assets/img/elyas.png'; 
+import resume from '../assets/documents/my-resume.pdf'; 
+
 
 function Main() {
   
@@ -12,10 +14,10 @@ function Main() {
         <p className="hero-subtitle">I'm a <strong class="blue-txt">Full Stack Developer</strong></p>
 
         <div className="social-icons hero-icons">
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaTelegram /></a>
+          <a href="https://www.linkedin.com/in/elyas-yenealem-01572b359" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+          <a href="https://github.com/dopi95/" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+          <a href="https://www.instagram.com/el_yas_21/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+          <a href="https://t.me/elaras21/" target="_blank" rel="noopener noreferrer"><FaTelegram /></a>
         </div>
 
         <div class="contact-details">

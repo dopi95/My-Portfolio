@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaDownload } from 'react-icons/fa';
+import certeficates from '../assets/documents/udacity.pdf'; 
+
 
 const Education = () => {
   return (

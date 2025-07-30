@@ -17,15 +17,8 @@ function Contact() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!formData.fullName.trim()) newErrors.fullName = true;
-
-    if (!formData.email || !emailRegex.test(formData.email)) {
-      newErrors.email = true;
-    }
-
-    if (!formData.phone || !phoneRegex.test(formData.phone)) {
-      newErrors.phone = true;
-    }
-
+    if (!formData.email || !emailRegex.test(formData.email)) newErrors.email = true;
+    if (!formData.phone || !phoneRegex.test(formData.phone)) newErrors.phone = true;
     if (!formData.message.trim()) newErrors.message = true;
 
     setErrors(newErrors);
@@ -34,25 +27,50 @@ function Contact() {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: false }); // Clear individual error
+    setErrors({ ...errors, [e.target.name]: false });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const sendToTelegram = async () => {
+    const botToken = '7622120987:AAECTaQR0ZoWfOAxLbW6SeKtWJjeiuf2Afk';
+    const chatId = '2120123278';
+    const text = `
+📩 *New Contact Submission*
+👤 *Name:* ${formData.fullName}
+📧 *Email:* ${formData.email}
+📞 *Phone:* ${formData.phone}
+📝 *Message:* ${formData.message}
+    `;
 
+    await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text,
+        parse_mode: 'Markdown'
+      })
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (!validate()) return;
 
-    setSuccess(true);
-    setTimeout(() => {
-      setSuccess(false);
-    }, 3000);
-
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      message: ''
-    });
+    try {
+      await sendToTelegram();
+      setSuccess(true);
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+      setTimeout(() => setSuccess(false), 3000);
+    } catch (error) {
+      console.error('Failed to send message to Telegram:', error);
+    }
   };
 
   return (

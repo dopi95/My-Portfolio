@@ -1,5 +1,5 @@
 import React from 'react';
-import profileImage from '../assets/elyas.png'; 
+import profileImage from '../assets/img/elyas.png'; 
 
 function About() {
   return (
