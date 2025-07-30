@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import pp from './img/pp.jfif'
 import {
   FaProjectDiagram,
   FaUserShield,
@@ -237,7 +238,7 @@ const AdminDashboard = () => {
       {/* Mobile Header */}
       <div className="md:hidden bg-white p-4 flex justify-between items-center shadow fixed w-full top-0 z-20">
         <div className="flex items-center gap-3">
-          <img src="https://i.pravatar.cc/100?img=12" alt="Profile" className="rounded-full w-10 h-10" />
+          <img src={pp} alt="Profile" className="rounded-full w-10 h-10" />
           <p className="font-semibold text-blue-600">Elyas Yenealem</p>
         </div>
         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl">
@@ -252,7 +253,7 @@ const AdminDashboard = () => {
         } md:relative fixed md:top-0 top-16 z-10`}
       >
         <div className="hidden md:flex flex-col items-center mb-6">
-          <img src="https://i.pravatar.cc/100?img=12" alt="Profile" className="rounded-full w-20 h-20 mb-2" />
+          <img src={pp} alt="Profile" className="rounded-full w-20 h-20 mb-2" />
           <p className="font-semibold">Elyas Yenealem</p>
         </div>
         <nav className="space-y-2">
