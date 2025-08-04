@@ -5,6 +5,9 @@
   "type": "module",
   "homepage": "https://dopi95.github.io/My-Portfolio",
   "scripts": {
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
