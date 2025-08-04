@@ -1,59 +1,80 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
 
-function Header() {
-  const [theme, setTheme] = useState('light');
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+const Header = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Prevent scroll when mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto';
-  }, [isMenuOpen]);
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
 
-  // Scroll event to toggle background
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const navLinks = ["Home", "About", "Projects", "Skills", "Contact"];
 
   return (
-    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-      <div className="left-section">
-        <div className="logo">Elyas</div>
-      </div>
+    <header className="w-full fixed top-0 z-50 shadow-md bg-white dark:bg-gray-900 transition duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+        {/* Logo */}
+        <h1 className="text-2xl font-bold text-blue-600 dark:text-blue-400 logo">Elyas</h1>
 
-      <div className="right-section">
-        <div
-          className={`hamburger ${isMenuOpen ? 'active' : ''}`}
-          onClick={toggleMenu}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex gap-6 items-center">
+          {navLinks.map((link) => (
+            <a
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+            >
+              {link}
+            </a>
+          ))}
+        </nav>
+
+        {/* Right Icons */}
+        <div className="flex items-center md:gap-6 gap-3">
+          {/* Dark/Light Toggle */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="text-2xl text-black dark:text-yellow-400 focus:outline-none"
+            aria-label="Toggle dark mode"
+          >
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </button>
+
+          {/* Hamburger */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="text-2xl text-gray-700 dark:text-gray-200 focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <FaTimes /> : <FaBars />}
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className={`nav ${isMenuOpen ? 'open' : ''}`}>
-        <a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a>
-        <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
-        <a href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a>
-        <a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
-        <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
-      </div>
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-white dark:bg-gray-800 py-4 px-4 space-y-3 shadow-md">
+          {navLinks.map((link) => (
+            <a
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              className="block text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              {link}
+            </a>
+          ))}
+        </div>
+      )}
     </header>
   );
-}
+};
 
 export default Header;

@@ -12,6 +12,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AdminLogin from './components/Dashboard/auth/AdminLogin';
 import AdminDashboard from './components/Dashboard/AdminDashboard';
+import Expertises from './components/Expertises';
+
 
 function App() {
   return (
@@ -23,9 +25,10 @@ function App() {
             <Header />
             <Main />
             <About />
-            <Skill />
             <Education />
             <Projects />
+            <Skill />
+            <Expertises />
             <Testimonals />
             <Contact />
             <Footer />
