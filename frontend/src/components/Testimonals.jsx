@@ -1,24 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { FaQuoteLeft, FaChevronLeft, FaChevronRight, FaStar } from "react-icons/fa";
+import mule from "../assets/img/mule.jpg";
+
 
 const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: "John Doe",
-      position: "CEO at TechCorp",
-      image: "https://randomuser.me/api/portraits/men/1.jpg",
-      text: "Working with Elyas was an absolute pleasure. His attention to detail and problem-solving skills helped us deliver our project ahead of schedule.",
+      name: "Mulugeta D.",
+      position: "RealEstate Sales Consultant",
+      image: mule,
+      text: "Elyas and his team delivered exceptional work for me. Their professional design and seamless functionality have significantly improved my client engagement and property showcase capabilities. The site perfectly represents my brand while making it easy for clients to browse listings and contact me",
       rating: 5
     },
-    {
-      id: 2,
-      name: "Jane Smith",
-      position: "Product Manager at Innovate",
-      image: "https://randomuser.me/api/portraits/women/1.jpg",
-      text: "Elyas's technical expertise and communication skills are exceptional. He understood our requirements perfectly and delivered beyond expectations.",
-      rating: 4
-    },
+  
     {
       id: 3,
       name: "Michael Johnson",

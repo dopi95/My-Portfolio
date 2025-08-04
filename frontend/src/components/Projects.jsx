@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaFilter } from "react-icons/fa";
 import profile from "../assets/img/elyas.png";
+import portfolio from "../assets/img/portfolio.png";
+import ar from "../assets/img/ar.png";
 
 const Projects = () => {
   // All available technologies for filtering
   const allTechs = [
-    "HTML5",
-    "CSS3",
+    "HTML",
+    "CSS",
     "JavaScript",
     "React",
     "TailwindCSS",
@@ -15,42 +18,85 @@ const Projects = () => {
     "MongoDB",
     "MySQL",
     "PostgreSQL",
+    "Express",
+    "Python",
   ];
 
   // Sample projects data
   const projectsData = [
     {
       id: 1,
-      title: "E-commerce Platform",
-      description: "A full-featured e-commerce platform with product listings, cart functionality, and user authentication.",
-      image: profile,
-      technologies: ["HTML5", "Node", "MongoDB","TailwindCSS"],
-      githubLink: "https://github.com/example/ecommerce",
-      liveDemo: "https://ecommerce-demo.example.com",
-    },
-    {
-      id: 3,
-      title: "E-commerce Platform",
-      description: "A full-featured e-commerce platform with product listings, cart functionality, and user authentication.",
-      image: profile,
-      technologies: ["CSS3", "Node.js", "MongoDB", "Bootstrap"],
-      githubLink: "https://github.com/example/ecommerce",
-      liveDemo: "https://ecommerce-demo.example.com",
+      title: "Ghion Homes Sales",
+      description: "A professional freelance project completed in a team, creating a sleek real estate website to showcase listings and simplify client interactions for a Ghion Homes sales representative.",
+      image: "http://localhost:5177/src/assets/images/projects/Ghion%20Homes%20Sales.png",
+      technologies: ["HTML", "CSS", "Javascript", "Node", "Express", "PostgreSQL"],
+      githubLink: "https://github.com/dopi95/Ghion-Homes-Sales.git",
+      liveDemo: "https://ghionhomessales.com/",
     },
     {
       id: 2,
-      title: "E-commerce Platform",
-      description: "A full-featured e-commerce platform with product listings, cart functionality, and user authentication.",
-      image: profile,
-      technologies: ["React", "Node.js", "MongoDB", "Bootstrap"],
-      githubLink: "https://github.com/example/ecommerce",
-      liveDemo: "https://ecommerce-demo.example.com",
+      title: "Artisan Blend",
+      description: "A collaborative bootcamp project to build a dynamic and interactive web application for a fictional high-end restaurant called Artisan Blend. It features an immersive frontend experience alongside an AI-powered backend chatbot.",
+      image: ar,
+      technologies: ["React", "Vite","TailwindCss", "Python"],
+      githubLink: "https://github.com/dopi95/ArtisanBlend-Restaurant-App.git",
+      liveDemo: "https://artisan-blend.netlify.app/",
     },
-    // ... other projects data
+    {
+      id: 3,
+      title: "Persenal Portfolio",
+      description: "A modern portfolio showcasing my journey in web development highlighting projects, skills, and creativity shaped by a passion for building meaningful digital experiences.",
+      image: portfolio,
+      technologies: ["React", "Vite", "TailwindCss","Node","Express"],
+      githubLink: "https://github.com/dopi95/My-Portfolio.git",
+      liveDemo: "",
+    },
   ];
 
   const [selectedTechs, setSelectedTechs] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  // Faster animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1, // Reduced stagger time
+        when: "beforeChildren",
+      }
+    }
+  };
+
+  const cardVariants = (index) => ({
+    hidden: { 
+      x: index % 2 === 0 ? -50 : 50, // Reduced initial offset
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 150, // Increased stiffness for faster movement
+        damping: 10,
+        duration: 0.5, // Explicit duration control
+      }
+    }
+  });
+
+  const filterVariants = {
+    hidden: { y: -10, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        duration: 0.3,
+      }
+    }
+  };
 
   const toggleTech = (tech) => {
     if (selectedTechs.includes(tech)) {
@@ -67,28 +113,43 @@ const Projects = () => {
       );
 
   return (
-    <section id="projects" className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 py-12 px-4 sm:px-6">
+    <motion.section 
+      id="projects" 
+      className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 py-12 px-4 sm:px-6"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }} // Reduced margin for earlier trigger
+      variants={containerVariants}
+    >
       <div className="max-w-7xl mx-auto">
         {/* Title Section */}
-        <div className="text-center mb-12">
+        <motion.div 
+          className="text-center mb-12"
+          variants={filterVariants}
+        >
           <h2 className="text-3xl font-bold mb-4">Projects</h2>
           <div className="max-w-2xl mx-auto">
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
               Here are some of my featured projects showcasing my skills and capabilities
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Filter Section */}
-        <div className="mb-10 flex justify-center">
+        <motion.div 
+          className="mb-10 flex justify-center"
+          variants={filterVariants}
+        >
           <div className="relative inline-block">
-            <button
+            <motion.button
               onClick={() => setIsFilterOpen(!isFilterOpen)}
               className={`flex items-center gap-3 px-5 py-3 rounded-lg transition-all duration-200 ${
                 isFilterOpen
                   ? "bg-blue-600 text-white shadow-lg"
                   : "bg-blue-500 text-white hover:bg-blue-600 shadow-md"
               }`}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               <FaFilter className="text-lg" />
               <span className="font-medium">Filter by Technology</span>
@@ -97,13 +158,19 @@ const Projects = () => {
                   {selectedTechs.length}
                 </span>
               )}
-            </button>
+            </motion.button>
 
             {isFilterOpen && (
-              <div className="absolute left-0 mt-3 w-full min-w-[300px] bg-white dark:bg-gray-800 rounded-lg shadow-xl p-4 border border-gray-200 dark:border-gray-700 z-10 transform transition-all duration-200 origin-top">
+              <motion.div 
+                className="absolute left-0 mt-3 w-full min-w-[300px] bg-white dark:bg-gray-800 rounded-lg shadow-xl p-4 border border-gray-200 dark:border-gray-700 z-10"
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -5 }}
+                transition={{ type: "spring", stiffness: 300, duration: 0.2 }}
+              >
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {allTechs.map((tech) => (
-                    <button
+                    <motion.button
                       key={tech}
                       onClick={() => toggleTech(tech)}
                       className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
@@ -111,37 +178,42 @@ const Projects = () => {
                           ? "bg-blue-500 text-white"
                           : "bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600"
                       }`}
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
                     >
                       {tech}
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
                 {selectedTechs.length > 0 && (
-                  <button
+                  <motion.button
                     onClick={() => setSelectedTechs([])}
                     className="mt-4 text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 text-sm font-medium"
+                    whileHover={{ scale: 1.03 }}
                   >
                     Clear all filters
-                  </button>
+                  </motion.button>
                 )}
-              </div>
+              </motion.div>
             )}
           </div>
-        </div>
+        </motion.div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <div
+          {filteredProjects.map((project, index) => (
+            <motion.div
               key={project.id}
-              className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-400"
+              className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-400 flex flex-col h-full"
+              variants={cardVariants(index)}
+              whileHover={{ y: -5 }} // Reduced hover lift
             >
               {/* Project Image with Always-Visible Title */}
               <div className="relative h-56 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" // Faster hover scale
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5">
                   <h3 className="text-xl font-bold text-white">{project.title}</h3>
@@ -149,69 +221,91 @@ const Projects = () => {
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
-                <p className="text-gray-600 dark:text-gray-300 mb-5 line-clamp-2">
-                  {project.description}
-                </p>
+              <div className="p-6 flex flex-col flex-grow">
+                <div className="flex-grow">
+                  <p className="text-gray-600 dark:text-gray-300 mb-5">
+                    {project.description}
+                  </p>
+                </div>
 
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-6 justify-center">
                   {project.technologies.map((tech) => (
-                    <span
+                    <motion.span
                       key={tech}
                       className={`px-3 py-1 text-xs font-medium rounded-full transition-colors ${
                         selectedTechs.includes(tech)
                           ? "bg-blue-500 text-white"
                           : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                       }`}
+                      whileHover={{ scale: 1.05 }} // Reduced hover scale
                     >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
 
                 {/* Buttons */}
                 <div className="flex gap-3">
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-800 dark:border-gray-300 text-gray-800 dark:text-gray-300 rounded-lg hover:bg-gray-800 hover:text-white dark:hover:bg-gray-300 dark:hover:text-gray-800 transition-colors duration-200"
-                  >
-                    <FaGithub className="text-lg" />
-                    <span className="font-medium">View Code</span>
-                  </a>
-                  <a
-                    href={project.liveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
-                  >
-                    <FaExternalLinkAlt className="text-lg" />
-                    <span className="font-medium">Live Demo</span>
-                  </a>
+                  {project.githubLink && (
+                    <motion.a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 border ${
+                        project.liveDemo ? "border-gray-800 dark:border-gray-300" : "border-blue-500"
+                      } text-gray-800 dark:text-gray-300 rounded-lg hover:bg-gray-800 hover:text-white dark:hover:bg-gray-300 dark:hover:text-gray-800 transition-colors duration-200`}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <FaGithub className="text-lg" />
+                      <span className="font-medium">View Code</span>
+                    </motion.a>
+                  )}
+                  {project.liveDemo && (
+                    <motion.a
+                      href={project.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg ${
+                        !project.githubLink ? "w-full" : ""
+                      }`}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <FaExternalLinkAlt className="text-lg" />
+                      <span className="font-medium">Live Demo</span>
+                    </motion.a>
+                  )}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (
-          <div className="text-center py-16">
+          <motion.div 
+            className="text-center py-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }} // Faster fade-in
+          >
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
               No projects match your selected filters.
             </p>
-            <button
+            <motion.button
               onClick={() => setSelectedTechs([])}
               className="px-6 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg font-medium"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               Clear all filters
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         )}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

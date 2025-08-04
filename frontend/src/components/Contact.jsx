@@ -307,6 +307,15 @@ const Contact = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <h4 className="font-medium">Let's Work Together</h4>
+                      <a 
+                        href="https://t.me/elaras21" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+                        aria-label="Contact via Telegram"
+                      >
+                        <FaPaperPlane className="text-lg" />
+                      </a>
                     </div>
                     <p className="text-gray-600 dark:text-gray-400">
                       I'm currently available for freelance opportunities and always excited to work on interesting projects.
