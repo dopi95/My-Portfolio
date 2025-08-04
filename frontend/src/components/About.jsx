@@ -1,6 +1,6 @@
 import React from "react";
 import { FaDownload } from "react-icons/fa";
-import profile from "../assets/img/elyas.png";
+import profile from "../assets/img/p1.png";
 import mycv from "../assets/documents/my-resume.pdf";
 
 const About = () => {

@@ -12,10 +12,17 @@ import {
   FaEye,
   FaLaptopCode,
   FaTimes,
+  FaDownload,
 } from "react-icons/fa";
 
 const Main = () => {
   const [showCV, setShowCV] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if mobile on component mount
+  useState(() => {
+    setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+  }, []);
 
   // Animation variants
   const containerVariants = {
@@ -66,6 +73,16 @@ const Main = () => {
       }
     },
     exit: { scale: 0.8, opacity: 0 }
+  };
+
+  const handleCVPreview = () => {
+    if (isMobile) {
+      // For mobile devices, open the PDF in a new tab
+      window.open(mycv, '_blank');
+    } else {
+      // For desktop, show the modal preview
+      setShowCV(true);
+    }
   };
 
   return (
@@ -140,15 +157,15 @@ const Main = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
           variants={textVariants}
         >
-          <motion.button
-            onClick={() => setShowCV(true)}
-            className="flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaEye />
-            Preview CV
-          </motion.button>
+         <motion.button
+  onClick={handleCVPreview}
+  className="flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <FaEye />
+  {isMobile ? "View CV" : "Preview CV"}
+</motion.button>
           <motion.a
             href="#projects"
             className="flex items-center justify-center gap-2 bg-gray-800 text-white px-6 py-2 rounded-full hover:bg-gray-900 transition duration-300"
@@ -174,8 +191,8 @@ const Main = () => {
         />
       </motion.div>
 
-      {/* CV Modal */}
-      {showCV && (
+      {/* CV Modal - Only for desktop */}
+      {showCV && !isMobile && (
         <motion.div 
           className="fixed inset-0 z-50 bg-black bg-opacity-70 flex justify-center items-center p-4"
           initial="hidden"
@@ -198,17 +215,20 @@ const Main = () => {
               type="application/pdf"
               className="w-full h-full"
             >
-              <p className="text-center text-sm mt-4">
-                PDF preview is not supported on this device.{" "}
+              <div className="text-center p-4">
+                <p className="text-sm mb-4">
+                  PDF preview is not supported on this device.
+                </p>
                 <a
                   href={mycv}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 underline"
+                  className="flex items-center justify-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
                 >
-                  Click here to download/view the CV.
+                  <FaDownload />
+                  Download CV
                 </a>
-              </p>
+              </div>
             </object>
           </div>
         </motion.div>
