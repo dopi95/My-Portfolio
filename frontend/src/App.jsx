@@ -13,6 +13,8 @@ import Footer from './components/Footer';
 import AdminLogin from './components/Dashboard/auth/AdminLogin';
 import AdminDashboard from './components/Dashboard/AdminDashboard';
 import Expertises from './components/Expertises';
+import ScrollToTop from './components/ScrollToTop';
+import FloatingContact from './components/FloatingContact';
 
 
 function App() {
@@ -32,6 +34,8 @@ function App() {
             <Testimonals />
             <Contact />
             <Footer />
+            <ScrollToTop />
+            <FloatingContact />
           </>
         }
       />

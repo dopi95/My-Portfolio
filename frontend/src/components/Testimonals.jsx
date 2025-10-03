@@ -10,16 +10,16 @@ const Testimonials = () => {
       name: "Mulugeta D.",
       position: "RealEstate Sales Consultant",
       image: mule,
-      text: "Elyas and his team delivered exceptional work for me. Their professional design and seamless functionality have significantly improved my client engagement and property showcase capabilities. The site perfectly represents my brand while making it easy for clients to browse listings and contact me",
+      text: "Elyas and his team delivered exceptional work for me. Their professional design and seamless functionality have significantly improved my client engagement and property showcase capabilities.",
       rating: 5
     },
   
     {
       id: 3,
-      name: "Michael Johnson",
-      position: "CTO at Digital Solutions",
+      name: "Fasil Menbere",
+      position: "MD, Senior Pediatrician and Child Health Expert",
       image: "https://randomuser.me/api/portraits/men/2.jpg",
-      text: "The quality of work and professionalism shown by Elyas was outstanding. We'll definitely be working with him again on future projects.",
+      text: "Elyas delivered an outstanding digital platform for our pediatric clinic. The system streamlined our operations and enhanced patient care delivery significantly.",
       rating: 5
     },
   ];
@@ -57,7 +57,7 @@ const Testimonials = () => {
     <section id="testimonials" className="bg-gray-50 dark:bg-gray-800 py-16 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-2">Testimonials</h2>
+          <h2 className="text-3xl font-bold mb-2 text-gray-800 dark:text-white">Testimonials</h2>
           <p className="text-lg text-gray-600 dark:text-gray-400">
             What people say about my work
           </p>

@@ -21,7 +21,8 @@ const Main = () => {
 
   // Check if mobile on component mount
   useState(() => {
-    setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    setIsMobile(mobileRegex.test(navigator.userAgent));
   }, []);
 
   // Animation variants
@@ -75,15 +76,7 @@ const Main = () => {
     exit: { scale: 0.8, opacity: 0 }
   };
 
-  const handleCVPreview = () => {
-    if (isMobile) {
-      // For mobile devices, open the PDF in a new tab
-      window.open(mycv, '_blank');
-    } else {
-      // For desktop, show the modal preview
-      setShowCV(true);
-    }
-  };
+
 
   return (
     <motion.section
@@ -99,18 +92,18 @@ const Main = () => {
         variants={textVariants}
       >
         <motion.h1 
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400 mb-4"
+          className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-blue-600 dark:text-blue-400 mb-6 leading-tight"
           variants={textVariants}
         >
-          <span className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">Hello, I'm</span> <span className="logo">Elyas Yenealem</span>
+          <span className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-sans font-light">Hello, I'm</span> <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Elyas Yenealem</span>
         </motion.h1>
 
         <motion.h3 
-          className="text-xl sm:text-2xl font-semibold mb-4 text-blue-500 dark:text-blue-300"
+          className="text-xl sm:text-2xl md:text-3xl font-display font-medium mb-6 text-blue-500 dark:text-blue-300 tracking-wide"
           variants={textVariants}
         >
           <Typewriter
-            words={["Frontend Developer", "Backend Developer", "Full Stack Developer"]}
+            words={["Software Developer", "Frontend Developer", "Backend Developer", "Full Stack Developer"]}
             loop={true}
             cursor
             cursorStyle="_"
@@ -121,7 +114,7 @@ const Main = () => {
         </motion.h3>
 
         <motion.p 
-          className="max-w-xl mx-auto md:mx-0 text-base sm:text-lg mb-6 leading-relaxed"
+          className="max-w-xl mx-auto md:mx-0 text-lg sm:text-xl mb-8 leading-relaxed font-sans text-gray-700 dark:text-gray-300 font-light"
           variants={textVariants}
         >
           Full Stack Developer passionate about building sleek, modern, and responsive web solutions.
@@ -129,7 +122,7 @@ const Main = () => {
 
         {/* Social Icons */}
         <motion.div 
-          className="flex justify-center md:justify-start gap-6 text-[26px] mb-6 text-blue-600 dark:text-blue-400"
+          className="flex justify-center md:justify-start gap-5 mb-8"
           variants={textVariants}
         >
           {[
@@ -142,38 +135,84 @@ const Main = () => {
               key={i}
               href={href}
               target="_blank"
-              className="hover:text-blue-800 transition duration-300"
+              className="relative w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400 dark:from-gray-600 dark:via-gray-700 dark:to-gray-800 text-gray-600 dark:text-gray-300 hover:from-blue-200 hover:via-blue-300 hover:to-blue-400 dark:hover:from-blue-400 dark:hover:via-blue-500 dark:hover:to-blue-600 hover:text-blue-700 dark:hover:text-white shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-300 dark:border-gray-500 hover:border-blue-300 dark:hover:border-blue-400 group overflow-hidden"
               aria-label="Social Icon"
-              whileHover={{ y: -3 }}
+              whileHover={{ 
+                y: -8, 
+                scale: 1.2,
+                rotate: [0, -5, 5, 0],
+                transition: { duration: 0.4 }
+              }}
               whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ 
+                opacity: 1, 
+                y: 0,
+                transition: { delay: i * 0.1 }
+              }}
             >
-              {icon}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                whileHover={{ scale: 1.5 }}
+              />
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                animate={{
+                  rotate: [0, 360]
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              />
+              <span className="text-xl relative z-10 group-hover:scale-110 transition-transform duration-300">{icon}</span>
             </motion.a>
           ))}
         </motion.div>
 
         {/* Buttons */}
         <motion.div 
-          className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+          className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start"
           variants={textVariants}
         >
-         <motion.button
-  onClick={handleCVPreview}
-  className="flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300"
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
->
-  <FaEye />
-  {isMobile ? "View CV" : "Preview CV"}
-</motion.button>
-          <motion.a
-            href="#projects"
-            className="flex items-center justify-center gap-2 bg-gray-800 text-white px-6 py-2 rounded-full hover:bg-gray-900 transition duration-300"
-            whileHover={{ scale: 1.05 }}
+          <motion.button
+            onClick={() => window.open(mycv, '_blank')}
+            className="relative overflow-hidden flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 group"
+            whileHover={{ 
+              scale: 1.08, 
+              y: -4,
+              boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)"
+            }}
             whileTap={{ scale: 0.95 }}
           >
-            <FaLaptopCode />
-            View Projects
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              initial={false}
+            />
+            <FaEye className="text-xl relative z-10" />
+            <span className="relative z-10">Preview CV</span>
+            <motion.div
+              className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+              whileHover={{ scale: 1.5 }}
+            />
+          </motion.button>
+          <motion.a
+            href="#projects"
+            className="relative overflow-hidden flex items-center justify-center gap-3 bg-gradient-to-r from-slate-800 via-slate-900 to-black text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-slate-500/25 transition-all duration-500 group"
+            whileHover={{ 
+              scale: 1.08, 
+              y: -4,
+              boxShadow: "0 20px 40px rgba(71, 85, 105, 0.4)"
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-slate-600 to-slate-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              initial={false}
+            />
+            <FaLaptopCode className="text-xl relative z-10" />
+            <span className="relative z-10">View Projects</span>
+            <motion.div
+              className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+              whileHover={{ scale: 1.5 }}
+            />
           </motion.a>
         </motion.div>
       </motion.div>

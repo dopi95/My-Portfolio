@@ -4,6 +4,8 @@ import profile from "../assets/img/elyas.png";
 import portfolio from "../assets/img/portfolio.png";
 import ar from "../assets/img/ar.png";
 import ghion from "../assets/img/ghion.png";
+import biruhkids from "../assets/img/biruhkids.png";
+import sms from "../assets/img/sms.png";
 
 const Projects = () => {
   // All available technologies for filtering
@@ -26,6 +28,15 @@ const Projects = () => {
   const projectsData = [
     {
       id: 1,
+      title: "BiruhKids Pediatric Clinic",
+      description: "A freelance team project creating a comprehensive digital healthcare platform for BiruhKids Pediatric Clinic in Addis Ababa, featuring online appointment booking, AI-powered chatbot, multi-role authentication, and bilingual support for pediatric care.",
+      image: biruhkids,
+      technologies: ["React", "Node", "Express", "MongoDB", "Javascript", "TailwindCSS"],
+      githubLink: "https://github.com/dopi95/BiruhKids-Pediatric-Speciality.git",
+      liveDemo: "https://biruhkidsclinic.com",
+    },
+    {
+      id: 2,
       title: "Ghion Homes Sales",
       description: "A professional freelance project completed in a team, creating a sleek real estate website to showcase listings and simplify client interactions for a Ghion Homes sales representative.",
       image: ghion,
@@ -34,7 +45,7 @@ const Projects = () => {
       liveDemo: "https://ghionhomessales.com/",
     },
     {
-      id: 2,
+      id: 3,
       title: "Artisan Blend",
       description: "A collaborative bootcamp project to build a dynamic and interactive web application for a fictional high-end restaurant called Artisan Blend. It features an immersive frontend experience alongside an AI-powered backend chatbot.",
       image: ar,
@@ -43,8 +54,17 @@ const Projects = () => {
       liveDemo: "https://artisan-blend.netlify.app/",
     },
     {
-      id: 3,
-      title: "Persenal Portfolio",
+      id: 4,
+      title: "Bluelight Academy SMS",
+      description: "A comprehensive full-stack school management system built for Bluelight Academy in Addis Ababa. Features complete administrative control over students, employees, payments, and system management with advanced role-based access control.",
+      image: sms,
+      technologies: ["React", "Node", "Express", "MongoDB", "Javascript", "TailwindCSS"],
+      githubLink: "https://github.com/dopi95/School-Management-System.git",
+      liveDemo: "",
+    },
+    {
+      id: 5,
+      title: "Personal Portfolio",
       description: "A modern portfolio showcasing my journey in web development highlighting projects, skills, and creativity shaped by a passion for building meaningful digital experiences.",
       image: portfolio,
       technologies: ["React", "Vite", "TailwindCSS","Node","Express"],

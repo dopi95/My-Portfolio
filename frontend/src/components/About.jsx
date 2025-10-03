@@ -38,47 +38,45 @@ const About = () => {
                 <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                   I'm a{" "}
                   <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    full-stack developer
+                    software developer
                   </span>{" "}
-                  based in Ethiopia. I build web and mobile applications that solve
-                  real-world problems using tools like{" "}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    JavaScript
-                  </span>
-                  ,{" "}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    PHP
-                  </span>
-                  ,{" "}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    MySQL
-                  </span>
-                  , and modern frontend frameworks like{" "}
+                  based in Ethiopia, specializing in full-stack web development. I create scalable applications using modern technologies including{" "}
                   <span className="text-blue-600 dark:text-blue-400 font-medium">
                     React
-                  </span>{" "}
-                  and{" "}
+                  </span>
+                  ,{" "}
                   <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    Tailwind CSS
+                    Node.js
+                  </span>
+                  ,{" "}
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    Express
+                  </span>
+                  ,{" "}
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    MongoDB
+                  </span>
+                  , and{" "}
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    TailwindCSS
                   </span>
                   .
                 </p>
 
                 <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                  I got into coding during university after discovering how
-                  impactful technology can be in shaping everyday lives. I love
-                  transforming ideas into clean, responsive, and user-friendly
-                  digital solutions.
+                  My expertise spans across modern frameworks and technologies, from building responsive frontends with{" "}
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    React and Vite
+                  </span>{" "}
+                  to developing robust backends with{" "}
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    Node.js and Express
+                  </span>
+                  . I'm passionate about creating clean, scalable, and user-centric digital solutions.
                 </p>
 
                 <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                  As part of my final year, I worked with a team of five to develop
-                  the{" "}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    Vehicle Insurance Management System
-                  </span>{" "}
-                  — a platform that helps customers manage policies, file claims,
-                  and report accidents with ease.
+                  I've successfully delivered freelance projects including healthcare platforms, school management systems, and real estate websites, working both independently and in collaborative teams to bring innovative solutions to life.
                 </p>
 
                 <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
