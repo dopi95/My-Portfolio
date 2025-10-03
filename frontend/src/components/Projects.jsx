@@ -6,6 +6,8 @@ import ar from "../assets/img/ar.png";
 import ghion from "../assets/img/ghion.png";
 import biruhkids from "../assets/img/biruhkids.png";
 import sms from "../assets/img/sms.png";
+import notedown from "../assets/img/notedown.png";
+import elearning from "../assets/img/elearning.png";
 
 const Projects = () => {
   // All available technologies for filtering
@@ -29,7 +31,7 @@ const Projects = () => {
     {
       id: 1,
       title: "BiruhKids Pediatric Clinic",
-      description: "A freelance team project creating a comprehensive digital healthcare platform for BiruhKids Pediatric Clinic in Addis Ababa, featuring online appointment booking, AI-powered chatbot, multi-role authentication, and bilingual support for pediatric care.",
+      description: "A professional freelance project completed in a team, creating a comprehensive digital healthcare platform for BiruhKids Pediatric Clinic in Addis Ababa, featuring online appointment booking, AI-powered chatbot, multi-role authentication, and bilingual support for pediatric care.",
       image: biruhkids,
       technologies: ["React", "Node", "Express", "MongoDB", "Javascript", "TailwindCSS"],
       githubLink: "https://github.com/dopi95/BiruhKids-Pediatric-Speciality.git",
@@ -64,6 +66,24 @@ const Projects = () => {
     },
     {
       id: 5,
+      title: "NoteDown - Modern Blogging Platform",
+      description: "A collaborative bootcamp project creating a full-stack blogging application with CRUD operations, JWT authentication, image uploads, comments system, likes functionality, and AI chatbot integration.",
+      image: notedown,
+      technologies: ["React", "Node", "Express", "MongoDB", "Javascript", "TailwindCSS", "Python"],
+      githubLink: "https://github.com/Ishimweric/blogging_app.git",
+      liveDemo: "https://notedowny.netlify.app/",
+    },
+    {
+      id: 6,
+      title: "DirectEd - E-learning Platform",
+      description: "A comprehensive bootcamp team project creating a full-stack e-learning platform with role-based authentication, course management, progress tracking, interactive quizzes, and AI assistant integration.",
+      image: elearning,
+      technologies: ["React", "Node", "Express", "MongoDB", "Javascript", "TailwindCSS", "Python"],
+      githubLink: "https://github.com/Fndemi/Elearning.git",
+      liveDemo: "https://dirwec.netlify.app/",
+    },
+    {
+      id: 7,
       title: "Personal Portfolio",
       description: "A modern portfolio showcasing my journey in web development highlighting projects, skills, and creativity shaped by a passion for building meaningful digital experiences.",
       image: portfolio,
