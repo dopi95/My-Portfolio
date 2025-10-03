@@ -81,7 +81,7 @@ const Main = () => {
   return (
     <motion.section
       id="home"
-      className="min-h-screen flex flex-col-reverse md:flex-row items-center gap-6 md:gap-10 px-6 py-20 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100"
+      className="min-h-screen flex flex-col-reverse md:flex-row items-center gap-4 md:gap-10 px-4 pt-20 pb-8 sm:pt-24 sm:pb-12 md:pt-32 md:pb-20 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -92,14 +92,14 @@ const Main = () => {
         variants={textVariants}
       >
         <motion.h1 
-          className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-blue-600 dark:text-blue-400 mb-6 leading-tight"
+          className="text-3xl sm:text-4xl md:text-6xl font-heading font-bold text-blue-600 dark:text-blue-400 mb-3 sm:mb-6 leading-tight"
           variants={textVariants}
         >
           <span className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-sans font-light">Hello, I'm</span> <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Elyas Yenealem</span>
         </motion.h1>
 
         <motion.h3 
-          className="text-xl sm:text-2xl md:text-3xl font-display font-medium mb-6 text-blue-500 dark:text-blue-300 tracking-wide"
+          className="text-lg sm:text-xl md:text-3xl font-display font-medium mb-3 sm:mb-6 text-blue-500 dark:text-blue-300 tracking-wide"
           variants={textVariants}
         >
           <Typewriter
@@ -114,7 +114,7 @@ const Main = () => {
         </motion.h3>
 
         <motion.p 
-          className="max-w-xl mx-auto md:mx-0 text-lg sm:text-xl mb-8 leading-relaxed font-sans text-gray-700 dark:text-gray-300 font-light"
+          className="max-w-xl mx-auto md:mx-0 text-base sm:text-lg md:text-xl mb-4 sm:mb-8 leading-relaxed font-sans text-gray-700 dark:text-gray-300 font-light"
           variants={textVariants}
         >
           Full Stack Developer passionate about building sleek, modern, and responsive web solutions.
@@ -122,7 +122,7 @@ const Main = () => {
 
         {/* Social Icons */}
         <motion.div 
-          className="flex justify-center md:justify-start gap-5 mb-8"
+          className="flex justify-center md:justify-start gap-3 sm:gap-5 mb-4 sm:mb-8"
           variants={textVariants}
         >
           {[
@@ -135,7 +135,7 @@ const Main = () => {
               key={i}
               href={href}
               target="_blank"
-              className="relative w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400 dark:from-gray-600 dark:via-gray-700 dark:to-gray-800 text-gray-600 dark:text-gray-300 hover:from-blue-200 hover:via-blue-300 hover:to-blue-400 dark:hover:from-blue-400 dark:hover:via-blue-500 dark:hover:to-blue-600 hover:text-blue-700 dark:hover:text-white shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-300 dark:border-gray-500 hover:border-blue-300 dark:hover:border-blue-400 group overflow-hidden"
+              className="relative w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400 dark:from-gray-600 dark:via-gray-700 dark:to-gray-800 text-gray-600 dark:text-gray-300 hover:from-blue-200 hover:via-blue-300 hover:to-blue-400 dark:hover:from-blue-400 dark:hover:via-blue-500 dark:hover:to-blue-600 hover:text-blue-700 dark:hover:text-white shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-300 dark:border-gray-500 hover:border-blue-300 dark:hover:border-blue-400 group overflow-hidden"
               aria-label="Social Icon"
               whileHover={{ 
                 y: -8, 
@@ -162,19 +162,19 @@ const Main = () => {
                 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               />
-              <span className="text-xl relative z-10 group-hover:scale-110 transition-transform duration-300">{icon}</span>
+              <span className="text-base sm:text-xl relative z-10 group-hover:scale-110 transition-transform duration-300">{icon}</span>
             </motion.a>
           ))}
         </motion.div>
 
         {/* Buttons */}
         <motion.div 
-          className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center md:justify-start"
           variants={textVariants}
         >
           <motion.button
             onClick={() => window.open(mycv, '_blank')}
-            className="relative overflow-hidden flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 group"
+            className="relative overflow-hidden flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 group"
             whileHover={{ 
               scale: 1.08, 
               y: -4,
@@ -186,7 +186,7 @@ const Main = () => {
               className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               initial={false}
             />
-            <FaEye className="text-xl relative z-10" />
+            <FaEye className="text-base sm:text-xl relative z-10" />
             <span className="relative z-10">Preview CV</span>
             <motion.div
               className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"
@@ -195,7 +195,7 @@ const Main = () => {
           </motion.button>
           <motion.a
             href="#projects"
-            className="relative overflow-hidden flex items-center justify-center gap-3 bg-gradient-to-r from-slate-800 via-slate-900 to-black text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-slate-500/25 transition-all duration-500 group"
+            className="relative overflow-hidden flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-slate-800 via-slate-900 to-black text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg shadow-2xl hover:shadow-slate-500/25 transition-all duration-500 group"
             whileHover={{ 
               scale: 1.08, 
               y: -4,
@@ -207,7 +207,7 @@ const Main = () => {
               className="absolute inset-0 bg-gradient-to-r from-slate-600 to-slate-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               initial={false}
             />
-            <FaLaptopCode className="text-xl relative z-10" />
+            <FaLaptopCode className="text-base sm:text-xl relative z-10" />
             <span className="relative z-10">View Projects</span>
             <motion.div
               className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"
@@ -219,13 +219,13 @@ const Main = () => {
 
       {/* Profile Image */}
       <motion.div 
-        className="flex-1 flex justify-center mb-4 md:mb-0"
+        className="flex-1 flex justify-center mb-2 sm:mb-4 md:mb-0"
         variants={imageVariants}
       >
         <motion.img
           src={pp}
           alt="Elyas"
-          className="w-56 h-56 sm:w-64 sm:h-64 rounded-full object-cover shadow-xl border-4 border-blue-200"
+          className="w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover shadow-xl border-4 border-blue-200"
           whileHover={{ scale: 1.05 }}
         />
       </motion.div>

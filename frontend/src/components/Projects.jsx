@@ -222,9 +222,7 @@ const Projects = () => {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 border ${
-                        project.liveDemo ? "border-gray-800 dark:border-gray-300" : "border-blue-500"
-                      } text-gray-800 dark:text-gray-300 rounded-lg hover:bg-gray-800 hover:text-white dark:hover:bg-gray-300 dark:hover:text-gray-800 transition-colors duration-200`}
+                      className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200`}
                     >
                       <FaGithub className="text-lg" />
                       <span className="font-medium">View Code</span>
@@ -235,12 +233,12 @@ const Projects = () => {
                       href={project.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg ${
+                      className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 ${
                         !project.githubLink ? "w-full" : ""
                       }`}
                     >
                       <FaExternalLinkAlt className="text-lg" />
-                      <span className="font-medium">Live Demo</span>
+                      <span className="font-medium">Live</span>
                     </a>
                   )}
                 </div>
